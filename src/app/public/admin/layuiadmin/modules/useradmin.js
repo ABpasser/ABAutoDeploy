@@ -1,8 +1,8 @@
 /*
  * @Author: ABpasser
  * @Date: 2018-09-03 09:49:33
- * @LastEditors: ABpasser
- * @LastEditTime: 2019-10-01 09:37:46
+ * @LastEditors  : ABpasser
+ * @LastEditTime : 2020-01-22 01:35:48
  * @Description:
  */
 /**
@@ -100,7 +100,8 @@ layui.define(['table', 'form'], function(exports) {
   //管理员管理
   table.render({
     elem: '#LAY-user-back-manage',
-    url: '/api/admin/manager/list?_csrf' + csrf, //模拟接口
+    url: '/api/manager/list?_csrf=' + csrf, //模拟接口
+    method: 'GET',
     cols: [
       [
         { type: 'checkbox', fixed: 'left' },
@@ -108,13 +109,13 @@ layui.define(['table', 'form'], function(exports) {
         { field: 'username', title: '登录名' },
         { field: 'phone', title: '手机' },
         { field: 'email', title: '邮箱' },
-        { field: 'rolename', title: '角色' },
-        { field: 'jointime', title: '加入时间', sort: true },
-        { field: 'check', title: '审核状态', templet: '#buttonTpl', minWidth: 80, align: 'center' },
+        { field: 'roleid', title: '角色' },
+        // { field: 'jointime', title: '加入时间', sort: true },
+        // { field: 'check', title: '审核状态', templet: '#buttonTpl', minWidth: 80, align: 'center' },
         { title: '操作', width: 150, align: 'center', fixed: 'right', toolbar: '#table-useradmin-admin' }
       ]
     ],
-    defaultToolbar: ['filter', 'print', 'exports'],// 无工具栏
+    defaultToolbar: ['filter', 'print', 'exports'], // 无工具栏
     text: {
       none: '暂无相关数据' //默认：无数据。注：该属性为 layui 2.2.5 开始新增
     }

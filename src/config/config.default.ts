@@ -2,7 +2,7 @@
  * @Author: ABpasser
  * @Date: 1985-10-26 16:15:00
  * @LastEditors  : ABpasser
- * @LastEditTime : 2020-01-21 14:32:16
+ * @LastEditTime : 2020-01-21 23:10:25
  * @Description:
  */
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'midway';
@@ -22,7 +22,8 @@ export default (appInfo: EggAppInfo) => {
 
   // add commone config
   config.programConfig = {
-    name: 'ABAutoDeploy'
+    name: 'ABAutoDeploy',
+    rootPath: appInfo.baseDir
   };
 
   // set favicon

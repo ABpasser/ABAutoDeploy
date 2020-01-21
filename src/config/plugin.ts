@@ -2,7 +2,7 @@
  * @Author: ABpasser
  * @Date: 1985-10-26 16:15:00
  * @LastEditors  : ABpasser
- * @LastEditTime : 2020-01-21 13:14:04
+ * @LastEditTime : 2020-01-21 20:21:55
  * @Description:
  */
 import { EggPlugin } from 'midway';

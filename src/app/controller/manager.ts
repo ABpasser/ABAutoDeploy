@@ -2,7 +2,7 @@
  * @Author: ABpasser
  * @Date: 1985-10-26 16:15:00
  * @LastEditors  : ABpasser
- * @LastEditTime : 2020-01-21 15:19:09
+ * @LastEditTime : 2020-01-21 23:54:28
  * @Description:
  */
 import { Context, inject, controller, get, provide } from 'midway';
@@ -12,6 +12,9 @@ import { Context, inject, controller, get, provide } from 'midway';
 export class ManagerController {
   @inject()
   ctx: Context;
+
+  @inject('managerService')
+  manager;
 
   @get('/')
   async index(): Promise<void> {
