@@ -1,0 +1,76 @@
+doctype
+html
+  head
+    meta(charset="utf-8")
+    title 基本资料
+    meta(name='renderer', content='webkit')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0')
+    include ../common/_style.pug
+  body
+    .layui-fluid
+      .layui-row.layui-col-space15
+        .layui-col-md12
+          .layui-card
+            .layui-card-header 设置我的资料
+            .layui-card-body(pad15='')
+              .layui-form(lay-filter='')
+                .layui-form-item
+                  label.layui-form-label 我的角色
+                  .layui-input-inline
+                    select(name='role', lay-verify='')
+                      each item in roleList
+                        if item.id == manager.role
+                          option(value=item.id selected) #{item.title}
+                        else
+                          option(value=item.id disabled) #{item.title}
+                  .layui-form-mid.layui-word-aux 当前角色不可更改为其它角色
+                .layui-form-item
+                  label.layui-form-label 用户名
+                  .layui-input-inline
+                    input.layui-input(type='text', name='username', value=manager.username, readonly='')
+                  .layui-form-mid.layui-word-aux &#x4E0D;&#x53EF;&#x4FEE;&#x6539;&#x3002;&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x540E;&#x53F0;&#x767B;&#x5165;&#x540D;
+                .layui-form-item
+                  label.layui-form-label &#x6635;&#x79F0;
+                  .layui-input-inline
+                    input.layui-input(type='text', name='nickname', value=manager.nickname, lay-verify='nickname', autocomplete='off', placeholder='请输入昵称')
+                //- .layui-form-item
+                //-   label.layui-form-label &#x5934;&#x50CF;
+                //-   .layui-input-inline
+                //-     input#LAY_avatarSrc.layui-input(name='avatar', lay-verify='required', placeholder='图片地址', value='http://cdn.layui.com/avatar/168.jpg')
+                //-   .layui-input-inline.layui-btn-container(style='width: auto;')
+                //-     button#LAY_avatarUpload.layui-btn.layui-btn-primary(type='button')
+                //-       i.layui-icon &#xE67C;
+                //-       | &#x4E0A;&#x4F20;&#x56FE;&#x7247;
+                //-     button.layui-btn.layui-btn-primary(layadmin-event='avartatPreview') &#x67E5;&#x770B;&#x56FE;&#x7247;
+                .layui-form-item
+                  label.layui-form-label 手机号
+                  .layui-input-inline
+                    input.layui-input(type='text', name='phone', value=manager.phone, lay-verify='phone', autocomplete='off')
+                .layui-form-item
+                  label.layui-form-label 邮箱
+                  .layui-input-inline
+                    input.layui-input(type='text', name='email', value=manager.email, lay-verify='email', autocomplete='off')
+                .layui-form-item.layui-form-text
+                  label.layui-form-label 备注
+                  .layui-input-block
+                    textarea.layui-textarea(name='remark', placeholder='请输入内容') #{manager.remark}
+                .layui-form-item.layui-hide 
+                  input(type='hidden',name="id", value=manager.id)
+                .layui-form-item.layui-hide 
+                  input(type='hidden',name="status", value='on')
+                .layui-form-item
+                  .layui-input-block
+                    button.layui-btn(lay-submit='', lay-filter='setmyinfo') 确认修改
+                    //- button.layui-btn.layui-btn-primary(type='reset') 重新填写
+      include ../common/_footer.pug
+    script.
+      var csrf = '#{csrf}';
+    script(src='/public/admin/layuiadmin/layui/layui.js')
+    script.
+      layui.config({
+      base: '/public/admin/layuiadmin/' //静态资源所在路径
+      }).extend({
+      index: 'lib/index' //主入口模块
+      }).use(['index', 'set']);
+

@@ -1,0 +1,52 @@
+// 侧边菜单
+.layui-side.layui-side-menu
+  .layui-side-scroll
+    .layui-logo
+      span #{pname}
+    ul#LAY-system-side-menu.layui-nav.layui-nav-tree(lay-shrink='all', lay-filter='layadmin-system-side-menu')
+      li.layui-nav-item.layui-nav-itemed(data-name='home').layui-this
+        a(lay-href='/public/admin/views/home/console.html', lay-tips='主页', lay-direction='2')
+          i.layui-icon.layui-icon-home
+          cite 主页
+        
+      li.layui-nav-item(data-name='content')
+        a(href='javascript:;', lay-tips='项目管理', lay-direction='2')
+          i.layui-icon.layui-icon-list
+          cite 项目管理
+        dl.layui-nav-child
+          dd(data-name='list')
+            a(lay-href='/pmanage') 项目列表
+          dd(data-name='tags')
+            a(lay-href='/pmanage/pclass') 项目分类
+      li.layui-nav-item(data-name='user')
+        a(href='javascript:;', lay-tips='用户中心', lay-direction='2')
+          i.layui-icon.layui-icon-chat
+          cite 用户中心
+        dl.layui-nav-child
+          dd
+            a(lay-href='/manager') 后台管理员
+          dd
+            a(lay-href='/role') 角色管理
+
+      li.layui-nav-item(data-name='set')
+        a(href='javascript:;', lay-tips='设置', lay-direction='2')
+          i.layui-icon.layui-icon-set
+          cite 设置
+        dl.layui-nav-child
+          dd.layui-nav-itemed
+            a(href='javascript:;') 系统设置
+            dl.layui-nav-child
+              dd
+                a(lay-href='/setting/website') 系统设置
+              //- dd
+              //-   a(lay-href='/setting/access') 权限管理
+          dd
+            a(href='javascript:;') 我的设置
+            dl.layui-nav-child
+              dd
+                a(lay-href='/setting/mydata') 个人资料
+              dd
+                a(lay-href='/setting/password') 修改密码
+
+//- 验证码
+//- img#LAY-user-get-vercode.layadmin-user-login-codeimg(src="/vertify", alt="",onclick="javascript:this.src='/vertify?mt='+Math.random()")

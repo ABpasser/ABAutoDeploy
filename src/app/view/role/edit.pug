@@ -1,0 +1,57 @@
+doctype
+html
+  head
+    meta(charset="utf-8")
+    title 角色-编辑
+    meta(name='renderer', content='webkit')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0')
+    include ../common/_style.pug
+  body
+    #layuiadmin-form-role.layui-form(lay-filter='layuiadmin-form-role', style='padding: 20px 30px 0 0;')
+      .layui-form-item
+        label.layui-form-label 角色名称
+        .layui-input-inline
+          input.layui-input(type='text', name='title', value=role.title , placeholder='请输入角色的名称', autocomplete='off')
+      //- .layui-form-item
+      //-   label.layui-form-label &#x6743;&#x9650;&#x8303;&#x56F4;
+      //-   .layui-input-block
+      //-     input(type='checkbox', name='limits[]', lay-skin='primary', title='内容系统')
+      //-     input(type='checkbox', name='limits[]', lay-skin='primary', title='社区系统')
+      //-     input(type='checkbox', name='limits[]', lay-skin='primary', title='用户')
+      //-     input(type='checkbox', name='limits[]', lay-skin='primary', title='角色')
+      //-     input(type='checkbox', name='limits[]', lay-skin='primary', title='评论审核')
+      //-     input(type='checkbox', name='limits[]', lay-skin='primary', title='发货')
+      //-     input(type='checkbox', name='limits[]', lay-skin='primary', title='采购')
+      //-     input(type='checkbox', name='limits[]', lay-skin='primary', title='系统设置')
+      //-     input(type='checkbox', name='limits[]', lay-skin='primary', title='发邮件')
+      //-     input(type='checkbox', name='limits[]', lay-skin='primary', title='发短信')
+      //-     input(type='checkbox', name='limits[]', lay-skin='primary', title='审核')
+      //-     input(type='checkbox', name='limits[]', lay-skin='primary', title='删库跑路')
+      .layui-form-item
+        label.layui-form-label 拥有权限
+        .layui-input-inline
+          input.layui-input(type='text', name='description', value=role.description, placeholder='请输入角色的权限', autocomplete='off')
+      .layui-form-item
+        label.layui-form-label 具体描述
+        .layui-input-block
+          textarea.layui-textarea(type='text', name='info') #{role.info}
+      .layui-form-item.layui-hide
+        input(type='hidden',name="id", value=role.id)
+      .layui-form-item.layui-hide
+        button#LAY-user-role-submit.layui-btn(lay-submit='', lay-filter='LAY-user-role-submit') 确认修改
+
+
+    script.
+      var csrf = '#{csrf}';
+
+    script(src="/public/admin/layuiadmin/layui/layui.js")
+    script.
+      layui.config({
+        base: '/public/admin/layuiadmin/' //静态资源所在路径
+      }).extend({
+        index: 'lib/index' //主入口模块
+      }).use(['index', 'form'], function(){
+        var $ = layui.$
+        ,form = layui.form;
+      })

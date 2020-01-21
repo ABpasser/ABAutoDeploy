@@ -1,0 +1,43 @@
+.layui-header
+  // 头部区域
+  ul.layui-nav.layui-layout-left
+    li.layui-nav-item.layadmin-flexible(lay-unselect='')
+      a(href='javascript:;', layadmin-event='flexible', title='侧边伸缩')
+        i#LAY_app_flexible.layui-icon.layui-icon-shrink-right
+    li.layui-nav-item.layui-hide-xs(lay-unselect='')
+      a(href=weburl, target='_blank', title='前台')
+        i.layui-icon.layui-icon-website
+    li.layui-nav-item(lay-unselect='')
+      a(href='javascript:;', layadmin-event='refresh', title='刷新')
+        i.layui-icon.layui-icon-refresh-3
+    li.layui-nav-item.layui-hide-xs(lay-unselect='')
+      input.layui-input.layui-input-search(type='text', placeholder='搜索...', autocomplete='off', layadmin-event='serach', lay-action='template/search.html?keywords=')
+  ul.layui-nav.layui-layout-right(lay-filter='layadmin-layout-right')
+    //- li.layui-nav-item(lay-unselect='')
+    //-   a(lay-href='app/message/index.html', layadmin-event='message', lay-text='消息中心')
+    //-     i.layui-icon.layui-icon-notice
+    //-     // 如果有新消息，则显示小圆点
+    //-     span.layui-badge-dot
+    li.layui-nav-item.layui-hide-xs(lay-unselect='')
+      a(href='javascript:;', layadmin-event='theme')
+        i.layui-icon.layui-icon-theme
+    //- li.layui-nav-item.layui-hide-xs(lay-unselect='')
+    //-   a(href='javascript:;', layadmin-event='note')
+    //-     i.layui-icon.layui-icon-note
+    li.layui-nav-item(lay-unselect='')
+      a(href='javascript:;')
+        cite #{username}
+      dl.layui-nav-child
+        dd
+          a(lay-href='/admin/setting/mydata') 个人资料
+        dd
+          a(lay-href='/admin/setting/password') 修改密码
+        hr
+        dd(style='text-align: center;')
+          a(href="/admin/loginOut") 退出
+    li.layui-nav-item.layui-hide-xs(lay-unselect='')
+      a(href='javascript:;', layadmin-event='fullscreen')
+        i.layui-icon.layui-icon-screen-full
+    li.layui-nav-item.layui-show-xs-inline-block.layui-hide-sm(lay-unselect='')
+      a(href='javascript:;', layadmin-event='more')
+        i.layui-icon.layui-icon-more-vertical

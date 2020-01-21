@@ -1,0 +1,71 @@
+doctype
+html
+  head
+    meta(charset="utf-8")
+    title 网站设置
+    meta(name='renderer', content='webkit')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0')
+    include ../common/_style.pug
+  body
+    .layui-fluid
+      .layui-row.layui-col-space15
+        .layui-col-md12
+          .layui-card
+            .layui-card-header 网站设置
+            .layui-card-body(pad15='')
+              .layui-form(wid100='', lay-filter='')
+                .layui-form-item
+                  label.layui-form-label 网站名称
+                  .layui-input-block
+                    input.layui-input(type='text', name='webname', value=website.webname)
+                .layui-form-item
+                  label.layui-form-label 网站域名
+                  .layui-input-block
+                    input.layui-input(type='text', name='weburl', lay-verify='url', value=website.weburl)
+                //- .layui-form-item
+                //-   label.layui-form-label &#x7F13;&#x5B58;&#x65F6;&#x95F4;
+                //-   .layui-input-inline(style='width: 80px;')
+                //-     input.layui-input(type='text', name='cache', lay-verify='number', value='0')
+                //-   .layui-input-inline.layui-input-company &#x5206;&#x949F;
+                //-   .layui-form-mid.layui-word-aux &#x672C;&#x5730;&#x5F00;&#x53D1;&#x4E00;&#x822C;&#x63A8;&#x8350;&#x8BBE;&#x7F6E;&#x4E3A; 0&#xFF0C;&#x7EBF;&#x4E0A;&#x73AF;&#x5883;&#x5EFA;&#x8BAE;&#x8BBE;&#x7F6E;&#x4E3A; 10&#x3002;
+                //- .layui-form-item
+                //-   label.layui-form-label &#x6700;&#x5927;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;
+                //-   .layui-input-inline(style='width: 80px;')
+                //-     input.layui-input(type='text', name='cache', lay-verify='number', value='2048')
+                //-   .layui-input-inline.layui-input-company KB
+                //-   .layui-form-mid.layui-word-aux &#x63D0;&#x793A;&#xFF1A;1 M = 1024 KB
+                //- .layui-form-item
+                //-   label.layui-form-label &#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x7C7B;&#x578B;
+                //-   .layui-input-block
+                //-     input.layui-input(type='text', name='cache', value='png|gif|jpg|jpeg|zip|rar')
+                .layui-form-item.layui-form-text
+                  label.layui-form-label 首页标题
+                  .layui-input-block
+                    textarea.layui-textarea(name='webtitle') #{website.webtitle}
+                .layui-form-item.layui-form-text
+                  label.layui-form-label META关键词
+                  .layui-input-block
+                    textarea.layui-textarea(name='webkeyword', placeholder='多个关键词用英文状态 , 号分割') #{website.webkeyword}
+                .layui-form-item.layui-form-text
+                  label.layui-form-label META描述
+                  .layui-input-block
+                    textarea.layui-textarea(name='webdescription') #{website.webdescription}
+                .layui-form-item.layui-form-text
+                  label.layui-form-label 版权信息
+                  .layui-input-block
+                    textarea.layui-textarea(name='webcopyright') #{website.webcopyright}
+                .layui-form-item
+                  .layui-input-block
+                    button.layui-btn(lay-submit='', lay-filter='set_website') 确认保存
+      include ../common/_footer.pug
+    script.
+      var csrf = '#{csrf}';
+    script(src='/public/admin/layuiadmin/layui/layui.js')
+    script.
+      layui.config({
+      base: '/public/admin/layuiadmin/' //静态资源所在路径
+      }).extend({
+      index: 'lib/index' //主入口模块
+      }).use(['index', 'set']);
+
