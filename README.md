@@ -2,13 +2,13 @@
  * @Author: ABpasser
  * @Date: 1985-10-26 16:15:00
  * @LastEditors  : ABpasser
- * @LastEditTime : 2020-01-21 12:55:56
+ * @LastEditTime : 2020-01-21 12:58:26
  * @Description:
  -->
 
 # ABAutoDeploy
 
-[中文说明](https://github.com/abpasser/abautodeploy/blob/master/readme.zh-cn.md)
+[中文说明](https://github.com/ABpasser/ABAutoDeploy/blob/master/README.zh-CN.md)
 
 ## QuickStart
 

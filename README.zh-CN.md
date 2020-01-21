@@ -1,6 +1,6 @@
 # ABAutoDeploy
 
-[Readme](https://github.com/abpasser/abautodeploy/blob/master/readme.md)
+[Readme](https://github.com/ABpasser/ABAutoDeploy)
 
 ## 快速入门
 
