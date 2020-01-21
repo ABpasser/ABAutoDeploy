@@ -1,6 +1,14 @@
+<!--
+ * @Author: ABpasser
+ * @Date: 1985-10-26 16:15:00
+ * @LastEditors  : ABpasser
+ * @LastEditTime : 2020-01-21 12:49:51
+ * @Description:
+ -->
+
 # ABAutoDeploy
 
-{{description}}
+[中文说明][https://github.com/abpasser/abautodeploy/blob/master/readme.zh-cn.md]
 
 ## QuickStart
 
@@ -15,19 +23,3 @@ $ npm i
 $ npm run dev
 $ open http://localhost:7001/
 ```
-
-### Deploy
-
-```bash
-$ npm start
-$ npm stop
-```
-
-### npm scripts
-
-- Use `npm run lint` to check code style.
-- Use `npm test` to run unit test.
-- Use `npm run autod` to auto detect dependencies upgrade, see [autod](https://www.npmjs.com/package/autod) for more detail.
-
-
-[midway]: https://midwayjs.org
