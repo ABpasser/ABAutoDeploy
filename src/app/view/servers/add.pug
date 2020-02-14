@@ -1,0 +1,47 @@
+doctype
+html
+  head
+    meta(charset="utf-8")
+    title 服务器-添加
+    meta(name='renderer', content='webkit')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0')
+    include ../common/_style.pug
+  body
+    #layuiadmin-form-admin.layui-form(lay-filter='layuiadmin-form-admin', style='padding: 20px 30px 0 0;')
+      .layui-form-item
+        label.layui-form-label IP
+        .layui-input-inline
+          input.layui-input(type='text', name='ip', lay-verify='required', placeholder='请输入IP', autocomplete='off')
+      .layui-form-item
+        label.layui-form-label Port
+        .layui-input-inline
+          input.layui-input(type='text', name='port', lay-verify='required', placeholder='请输入端口号', autocomplete='off')
+      .layui-form-item
+        label.layui-form-label 服务器名
+        .layui-input-inline
+          input.layui-input(type='text', name='name', lay-verify='required', placeholder='请输入服务器名称', autocomplete='off')
+      .layui-form-item
+        label.layui-form-label 登录帐号
+        .layui-input-inline
+          input.layui-input(type='text', name='username', lay-verify='required', placeholder='请输登录帐号', autocomplete='off')
+      .layui-form-item
+        label.layui-form-label 登录密码
+        .layui-input-inline
+          input.layui-input(type='password', name='password', lay-verify='required', placeholder='请输入密码')
+      .layui-form-item.layui-hide
+        input#LAY-user-front-submit(type='button', lay-submit='', lay-filter='LAY-user-front-submit', value='确认')
+    
+    script.
+      var csrf = '#{csrf}';
+
+    script(src="/public/admin/layuiadmin/layui/layui.js")
+    script.
+      layui.config({
+        base: '/public/admin/layuiadmin/' //静态资源所在路径
+      }).extend({
+        index: 'lib/index' //主入口模块
+      }).use(['index', 'form'], function(){
+        var $ = layui.$
+        ,form = layui.form;
+      })

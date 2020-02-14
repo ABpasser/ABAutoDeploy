@@ -1,0 +1,57 @@
+doctype
+html
+  head
+    meta(charset="utf-8")
+    title 项目-添加
+    meta(name='renderer', content='webkit')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0')
+    include ../common/_style.pug
+  body
+    #layuiadmin-form-admin.layui-form(lay-filter='layuiadmin-form-admin', style='padding: 20px 30px 0 0;')
+      .layui-form-item
+        label.layui-form-label 项目类型
+        .layui-input-block
+          select(name='pclassId')
+            option(value='') 请选择类型
+            each item in pclassList
+              option(value=item.id) #{item.title}
+      .layui-form-item
+        label.layui-form-label 项目名
+        .layui-input-inline
+          input.layui-input(type='text', name='name', lay-verify='required', placeholder='请输入项目名称', autocomplete='off')
+      .layui-form-item.layui-form-text
+        label.layui-form-label 项目简介
+        .layui-input-block
+          textarea.layui-textarea(name='description')
+      .layui-form-item
+        label.layui-form-label 部署服务器
+        .layui-input-block
+          select(name='serverId')
+            option(value='') 请选择服务器
+            each item in serverList
+              option(value=item.id) #{item.ip}
+      .layui-form-item
+        label.layui-form-label 项目路径
+        .layui-input-block
+          input.layui-input(type='text', name='dir', lay-verify='required', placeholder='请输入本地项目绝对路径', autocomplete='off')
+      .layui-form-item
+        label.layui-form-label 部署路径
+        .layui-input-block
+          input.layui-input(type='text', name='targetDir', lay-verify='required', placeholder='请输入服务器中部署的绝对路径', autocomplete='off')
+      .layui-form-item.layui-hide
+        input#LAY-user-front-submit(type='button', lay-submit='', lay-filter='LAY-user-front-submit', value='确认')
+    
+    script.
+      var csrf = '#{csrf}';
+
+    script(src="/public/admin/layuiadmin/layui/layui.js")
+    script.
+      layui.config({
+        base: '/public/admin/layuiadmin/' //静态资源所在路径
+      }).extend({
+        index: 'lib/index' //主入口模块
+      }).use(['index', 'form'], function(){
+        var $ = layui.$
+        ,form = layui.form;
+      })

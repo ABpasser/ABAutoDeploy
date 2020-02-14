@@ -2,7 +2,7 @@
  * @Author: ABpasser
  * @Date: 1985-10-26 16:15:00
  * @LastEditors  : ABpasser
- * @LastEditTime : 2020-01-21 23:10:25
+ * @LastEditTime : 2020-01-23 21:40:49
  * @Description:
  */
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'midway';
@@ -23,7 +23,8 @@ export default (appInfo: EggAppInfo) => {
   // add commone config
   config.programConfig = {
     name: 'ABAutoDeploy',
-    rootPath: appInfo.baseDir
+    rootPath: appInfo.baseDir,
+    compressDir: '/Users/abpasser/AB/compressProgram/'
   };
 
   // set favicon
